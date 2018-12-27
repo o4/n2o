@@ -1,0 +1,5 @@
+.stack-work/
+n2o.cabal
+*~
+*.agdai
+dist/
