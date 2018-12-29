@@ -28,12 +28,18 @@ postulate
 
 -}
 
+infixl 1 _>>=_ _>>_
+
 postulate 
-    return : (a : Set ℓ) → a → IO a
-    _>>=_ : (a : Set ℓ₁) (b : Set ℓ₂) → IO a → (a → IO b) → IO b
+    return : ∀ {a : Set ℓ₁}              →    a              → IO a
+    _>>=_  : ∀ {a : Set ℓ₁} {b : Set ℓ₂} → IO a → (a → IO b) → IO b
+    _>>_   : ∀ {a : Set ℓ₁} {b : Set ℓ₂} → IO a →      IO b  → IO b
     
-{-# COMPILE GHC return = \ _ _ -> return :: a -> IO a #-}
-{-# COMPILE GHC _>>=_ = \ _ _ _ _ -> (>>=) :: IO a -> (a -> IO b) -> IO b #-}
+{-# COMPILE GHC return = \ _ _         -> return :: a    ->                IO a #-}
+{-# COMPILE GHC _>>=_  = \ _ _ _ _     -> (>>=)  :: IO a -> (a -> IO b) -> IO b #-}
+{-# COMPILE GHC _>>_   = \ _ _ _ _     -> (>>)   :: IO a ->       IO b  -> IO b #-}
+{-# COMPILE UHC return = \ _ _ x       -> UHC.Agda.Builtins.primReturn x        #-}
+{-# COMPILE UHC _>>=_  = \ _ _ _ _ x y -> UHC.Agda.Builtins.primBind x y        #-}
 
 postulate 
     getLine  : IO String 

@@ -12,7 +12,7 @@ open import Agda.Primitive.Cubical public
               ; primHComp      to hcomp
               ; primTransp     to transp
               ; itIsOne        to 1=1 )
-
+              
 open import Agda.Primitive public
      using    ( Level ; _⊔_ ; Setω )
      renaming ( lzero to ℓ-zero

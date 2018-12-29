@@ -1,17 +1,18 @@
 SRC := ${PWD}/n2o
 OUT := ${PWD}/dist
-GHC := -I${PWD}/include
+DEP := -package network-2.6.3.6
+GHC := -I${PWD}/include -v 
 
-.DEFAULT_GOAL : all 
+.DEFAULT_GOAL : all
 
-all: ${OUT}/N2O run
+all: ${OUT}/N2O r
 
 ${OUT}:; @mkdir $<
 
-${OUT}/N2O:; @agda -c --compile-dir=${OUT} $(GHC:%=--ghc-flag=%) ${SRC}/N2O.agda
+${OUT}/N2O:; agda -c --compile-dir=${OUT} $(GHC:%=--ghc-flag=%) --ghc-flag "-package network-2.6.3.6" ${SRC}/N2O.agda
 
-run:; @${OUT}/N2O
+r:; @${OUT}/N2O
 
-clean:; @find . -type f -name '*.agdai' -delete 
+c:; @find . -type f -name '*.agdai' -delete && rm -rf dist/
 
-.PHONY: dist all run clean
+.PHONY: all r c
