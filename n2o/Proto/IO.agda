@@ -8,7 +8,6 @@ open import Agda.Builtin.IO public
 open import n2o.Proto.Codata
 
 variable 
-    ℓ  : Level 
     ℓ₁ : Level
     ℓ₂ : Level
   
