@@ -1,7 +1,7 @@
 SRC := ${PWD}/n2o
 OUT := ${PWD}/dist
-DEP := -package network-2.6.3.6
-GHC := -I${PWD}/include ${DEP}
+DEP := n2o cereal network
+GHC := -I${PWD}/include $(DEP:%=-package %)
 
 .DEFAULT_GOAL : all
 

@@ -5,12 +5,14 @@ module n2o.N2O where
 open import n2o.Proto.Base
 open import n2o.Proto.IO
 open import n2o.Network.Socket
+open import n2o.Network.Core
+open import n2o.Network.Types
 
 -- open import Infinity.Proto
 
 main : IO ⊤
 main = do 
-    sock ← socket AF_INET Stream (+ 0)
+    -- sock ← socket AF_INET Stream (+ 0)
     hPutStrLn stdout "asd"
     putStrLn "[*] Done"
 
