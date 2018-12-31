@@ -10,7 +10,7 @@ open import n2o.Network.Socket
 
 main : IO ⊤
 main = do 
-    -- sock ← socket AF_INET Stream (ℤ.pos 0)
+    sock ← socket AF_INET Stream (+ 0)
     hPutStrLn stdout "asd"
     putStrLn "[*] Done"
 

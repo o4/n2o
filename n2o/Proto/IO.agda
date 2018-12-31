@@ -36,8 +36,7 @@ postulate
     
   toColist :: [a]  -> MAlonzo.Code.Qn2o.Proto.Codata.AgdaColist a
   toColist []       = MAlonzo.Code.Qn2o.Proto.Codata.Nil
-  toColist (x : xs) = MAlonzo.Code.Qn2o.Proto.Codata.Cons x (MAlonzo.RTE.Sharp (toColist xs))
-#-}
+  toColist (x : xs) = MAlonzo.Code.Qn2o.Proto.Codata.Cons x (MAlonzo.RTE.Sharp (toColist xs)) #-}
 
 postulate 
     FileHandle  : Set
@@ -72,3 +71,10 @@ postulate
 {-# COMPILE UHC appendFile     = UHC.Agda.Builtins.primAppendFile                       #-}
 {-# COMPILE UHC putStrLn       = UHC.Agda.Builtins.primPutStrLn                         #-}
 {-# COMPILE UHC hPutStrLn      = UHC.Agda.Builtins.primHPutStrLn                        #-}
+
+{-# FOREIGN GHC import GHC.MVar #-}
+
+postulate 
+  MVar : Set → Set 
+  
+{-# COMPILE GHC MVar = type GHC.MVar.MVar #-}
