@@ -1,13 +1,15 @@
-{-# OPTIONS --cubical --safe #-}
+{-# OPTIONS --safe #-}
 
 module n2o.Proto.Base where 
 
-open import Agda.Builtin.Int public
-  using ()
-  renaming
-  ( Int to ℤ
-  ; pos    to +_
-  ; negsuc to -[1+_] )
+open import n2o.Proto.Core public 
+open import n2o.Proto.ByteString
+open import n2o.Proto.IO
 
-data _×_ (a b : Set) : Set where 
-  pair : a → b → a × b 
+data Strictness : Set where 
+    Lazy   : Strictness 
+    Strict : Strictness 
+    
+ByteString : Strictness → Set 
+ByteString Strict = ByteStringStrict 
+ByteString Lazy   = ByteStringLazy

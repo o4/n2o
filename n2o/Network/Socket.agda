@@ -258,6 +258,7 @@ data SocketStatus : Set where
   import Unsafe.Coerce 
   import Foreign.C.Types
   import Network.Socket 
+
   coeCInt :: Integer -> Foreign.C.Types.CInt
   coeCInt n = Unsafe.Coerce.unsafeCoerce (n :: Integer) :: Foreign.C.Types.CInt
 #-}

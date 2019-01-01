@@ -5,12 +5,9 @@ open import Agda.Builtin.String public using ( String )
 open import Agda.Builtin.Unit public 
 open import Agda.Builtin.IO public 
 
+open import n2o.Proto.Core
 open import n2o.Proto.Codata
 
-variable 
-    ℓ₁ : Level
-    ℓ₂ : Level
-  
 infixl 1 _>>=_ _>>_
 
 postulate 
@@ -72,9 +69,12 @@ postulate
 {-# COMPILE UHC putStrLn       = UHC.Agda.Builtins.primPutStrLn                         #-}
 {-# COMPILE UHC hPutStrLn      = UHC.Agda.Builtins.primHPutStrLn                        #-}
 
-{-# FOREIGN GHC import GHC.MVar #-}
+{-# FOREIGN GHC import GHC.MVar
+                import Data.IORef #-}
 
 postulate 
-  MVar : Set → Set 
+  MVar  : Set → Set 
+  IORef : Set → Set
   
-{-# COMPILE GHC MVar = type GHC.MVar.MVar #-}
+{-# COMPILE GHC MVar  = type GHC.MVar.MVar    #-}
+{-# COMPILE GHC IORef = type Data.IORef.IORef #-}
