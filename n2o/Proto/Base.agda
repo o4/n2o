@@ -4,6 +4,7 @@ module n2o.Proto.Base where
 
 open import n2o.Proto.Core public 
 open import n2o.Proto.ByteString
+open import n2o.Proto.Map
 open import n2o.Proto.IO
 
 data Strictness : Set where 
@@ -11,5 +12,5 @@ data Strictness : Set where
     Strict : Strictness 
     
 ByteString : Strictness → Set 
-ByteString Strict = ByteStringStrict 
-ByteString Lazy   = ByteStringLazy
+ByteString Strict = StByteString 
+ByteString Lazy   = CoByteString

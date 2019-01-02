@@ -1,4 +1,4 @@
-{-# OPTIONS --cubical --safe #-}
+{-# OPTIONS --cubical #-}
 
 module n2o.Proto.Core where 
 
@@ -16,6 +16,10 @@ open import Agda.Primitive public
      using    ( Level ; _⊔_ ; Setω )
      renaming ( lzero to ℓ-zero
               ; lsuc  to ℓ-succ )
+              
+open import Agda.Builtin.Size public
+  using    ( Size ; Size<_ ; ↑_ ; ∞ )
+  renaming ( SizeU to SizeUniv )
 
 variable
     ℓ  : Level

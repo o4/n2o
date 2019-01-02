@@ -2,12 +2,12 @@ module n2o.Proto.ByteString where
 
 open import n2o.Proto.Core
 
-{-# FOREIGN GHC import Data.ByteString.Lazy   as BL
-                import Data.ByteString.String as BS #-}
+{-# FOREIGN GHC import Data.ByteString.Lazy
+                import Data.ByteString.Strict #-}
 
 postulate 
-    ByteStringLazy   : Set 
-    ByteStringStrict : Set 
+    CoByteString : Set 
+    StByteString : Set 
     
-{-# COMPILE GHC ByteStringLazy   = BL.ByteString #-}
-{-# COMPILE GHC ByteStringStrict = BS.ByteString #-}
+{-# COMPILE GHC CoByteString = type Data.ByteString.Lazy.ByteString   #-}
+{-# COMPILE GHC StByteString = type Data.ByteString.Strict.ByteString #-}

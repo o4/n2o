@@ -6,9 +6,10 @@ open import n2o.Proto.Base
 open import n2o.Proto.Core
 open import n2o.Proto.IO
 
+open import n2o.Network.WebSocket
 open import n2o.Network.Socket
 open import n2o.Network.Core
-open import n2o.Network.Types
+open import n2o.Network.Internal
 
 -- open import Infinity.Proto
 
@@ -19,11 +20,22 @@ postulate
 import Control.Concurrent (threadDelay)
 terminationCheck :: IO ()
 terminationCheck = do
-    putStrLn "."
+    putStrLn "sapere aude"
     threadDelay 1000000
     terminationCheck #-}
     
 {-# COMPILE GHC terminationCheck = terminationCheck #-}
+
+data Example : Set where 
+    Greet : Example 
+
+router : Set 
+router = ℤ
+
+-- cx : Cx Example
+-- cx = record { cxMiddleware = router ∷ []
+--             ; cxProtocols  = [] }
+            
 
 main : IO ⊤
 main = do 
