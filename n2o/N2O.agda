@@ -28,13 +28,39 @@ terminationCheck = do
 
 data Example : Set where 
     Greet : Example 
+    
+-- index Init = do 
+--   updateText "system" "What is your name?"
+--   wire record { id_ = "send" , postback = Just Greet, source = "name" ∷ [] }
+-- index (Message Greet) = do 
+--   Just name ← get "name"
+--   updateText "system" ("Hello, " <> jsEscape name)
+index : Event Example → IO ⊤
+index ev = putStrLn "Unknown event" -- TODO : monoids
 
-router : Set 
-router = ℤ
+about : Event Example → IO ⊤
+about ev = putStrLn "Unknown event"
+
+-- route : Context N2OProto Example → Context N2OProto Example 
+-- route c with (unpack (Request.reqPath (Context.cxRequest c)))
+-- ... | "/ws/samples/static/index.html" = about
+-- ... | "/ws/samples/static/about.html" = about 
+-- ... | _ = about
+
+-- router : Context N2OProto Example → Context N2OProto Example 
+-- router c = record c { handler = mkHandler route }
+
+
+-- protocols : 
 
 -- cx : Cx Example
--- cx = record { cxMiddleware = router ∷ []
---             ; cxProtocols  = [] }
+-- cx = mkCx h r m p a d 
+--   where h = ?
+--         r = ?
+--         m = route ∷ []
+--         p = []
+--         a = ?
+--         d = ?
             
 
 main : IO ⊤

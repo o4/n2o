@@ -13,13 +13,19 @@ open import Agda.Builtin.List public
   using ( List ; [] ; _∷_ )
 
 open import Agda.Primitive public
-     using    ( Level ; _⊔_ ; Setω )
-     renaming ( lzero to ℓ-zero
-              ; lsuc  to ℓ-succ )
+  using    ( Level ; _⊔_ ; Setω )
+  renaming ( lzero to ℓ-zero
+           ; lsuc  to ℓ-succ )
               
 open import Agda.Builtin.Size public
   using    ( Size ; Size<_ ; ↑_ ; ∞ )
   renaming ( SizeU to SizeUniv )
+  
+open import Agda.Builtin.String public 
+  using ( String ; primShowString ; primStringAppend )
+
+open import Agda.Builtin.Unit public 
+open import Agda.Builtin.IO public 
 
 variable
     ℓ  : Level
