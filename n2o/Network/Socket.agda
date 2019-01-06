@@ -1,7 +1,7 @@
 module n2o.Network.Socket where 
 
-open import n2o.Proto.IO
-open import n2o.Proto.Base
+open import proto.IO
+open import proto.Base
 
 data SocketType : Set where 
     NoSocketType : SocketType 

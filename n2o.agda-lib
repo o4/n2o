@@ -1,2 +1,3 @@
-depend: Infinity
+name: n2o
+depend: Infinity proto
 include: .

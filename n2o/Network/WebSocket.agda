@@ -2,8 +2,9 @@
 
 module n2o.Network.WebSocket where 
 
-open import n2o.Proto.Base
-open import n2o.Proto.IO
+open import proto.Base
+open import proto.IO
+
 open import n2o.Network.Internal
 
 {-# FOREIGN GHC import Network.N2O.Web.WebSockets #-}

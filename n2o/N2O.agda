@@ -2,9 +2,9 @@
 
 module n2o.N2O where 
 
-open import n2o.Proto.Base
-open import n2o.Proto.Core
-open import n2o.Proto.IO
+open import proto.Base
+open import proto.Core
+open import proto.IO
 
 open import n2o.Network.WebSocket
 open import n2o.Network.Socket

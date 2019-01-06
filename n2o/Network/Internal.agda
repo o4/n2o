@@ -2,9 +2,9 @@
 
 module n2o.Network.Internal where
 
-open import n2o.Proto.Base
-open import n2o.Proto.Map
-open import n2o.Proto.IO
+open import proto.Base
+open import proto.Map
+open import proto.IO
 
 {-# FOREIGN GHC import Network.N2O.Types #-}
 
